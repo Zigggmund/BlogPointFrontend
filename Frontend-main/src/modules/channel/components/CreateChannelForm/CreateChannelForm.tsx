@@ -1,0 +1,99 @@
+import { useNavigate } from 'react-router-dom';
+import { categories } from '@constants/categories.ts';
+import { useLanguage } from '@hooks/useLanguage.ts';
+import { Flex, Group, NativeSelect, Textarea, TextInput } from '@mantine/core';
+import { useForm } from '@mantine/form';
+import { useChannelCreate } from '@modules/channel/hooks/useChannelCreate.ts';
+import { BlueButton, FormBox, GreyButton, Heading1, Heading4 } from '@ui';
+
+export const CreateChannelForm = () => {
+  const { l } = useLanguage();
+  const createChannel = useChannelCreate();
+  const navigate = useNavigate();
+
+  const form = useForm({
+    initialValues: {
+      name: '',
+      description: '',
+      categoryId: 1,
+    },
+    validate: {
+      name: value =>
+        value.length < 3 || value.length > 60 ? l.validationChannelName : null,
+      description: value =>
+        value && (value.length < 10 || value.length > 500)
+          ? l.validationChannelDescription
+          : null,
+      categoryId: value =>
+        value !== null && value !== undefined
+          ? null
+          : l.validationChannelCategory,
+    },
+  });
+
+  return (
+    <FormBox>
+      <Heading1>{l.channelCreation}</Heading1>
+      <Group justify="center" grow>
+        <form
+          onSubmit={form.onSubmit(values => {
+            createChannel.mutate({
+              name: values.name,
+              description: values.description,
+              categoryId: Number(values.categoryId),
+            });
+          })}
+        >
+          <Flex direction="column" gap="md">
+            <TextInput
+              size="md"
+              mt="sm"
+              radius="lg"
+              label={<Heading4 mb={5}>{l.channelName}</Heading4>}
+              placeholder={l.enterChannelName}
+              {...form.getInputProps('name')}
+            />
+            <Textarea
+              size="md"
+              mt="sm"
+              radius="lg"
+              label={<Heading4 mb={10}>{l.channelDescription}</Heading4>}
+              placeholder={l.enterChannelDescription}
+              {...form.getInputProps('description')}
+            />
+            <NativeSelect
+              size="md"
+              mt="sm"
+              radius="lg"
+              label={<Heading4 mb={5}>{l.channelCategory}</Heading4>}
+              data={categories.map(category => ({
+                value: category.id.toString(), // значение id как строка
+                label: category.name, // отображаемое имя категории
+              }))}
+              key={form.key('categoryId')}
+              {...form.getInputProps('categoryId')}
+            />
+            <Flex
+              mih={50}
+              gap={{ base: '0', xs: 'xs' }}
+              justify="center"
+              align="center"
+              direction={{ base: 'column', xs: 'row' }}
+            >
+              <GreyButton
+                mt="sm"
+                w={'fit-content'}
+                onClick={() => navigate('/user-channels')}
+              >
+                {l.btnCancel}
+              </GreyButton>
+              <BlueButton type="submit" mt="sm" w={'fit-content'}>
+                {l.btnConfirm}
+              </BlueButton>
+            </Flex>
+          </Flex>
+        </form>
+      </Group>
+    </FormBox>
+  );
+};
