@@ -1,7 +1,7 @@
-# BlogPoint — Frontend Application
+# BlogPointFrontend — Frontend Application
 
-### 📝 Project Overview
-**BlogPoint** is a modern web application designed for self-expression, providing users with a convenient and user-friendly space to publish and showcase their creative work. 
+### Project Overview
+**BlogPointFrontend** is the frontend component (Single Page Application / SPA) of the media blogging platform. The client-side application interacts with the server asynchronously via structured REST API requests.
 
 **Core Features & Roles:**
 * **Guest:** Can browse registration/login pages and view public channels.
@@ -25,7 +25,7 @@ Make sure you have the following tools installed on your local machine:
 #### Step-by-Step Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/Zigggmund/BlogPointFrontend.git
    cd BlogPointFrontend
    ```
 
@@ -52,8 +52,8 @@ Make sure you have the following tools installed on your local machine:
 
 ---
 
-### 📝 Аннотация проекта (Overview)
-**BlogPoint** — это современное веб-приложение для самовыражения, представляющее собой удобное и доступное пространство для размещения и демонстрации своего творчества.
+### Аннотация
+**BlogPointFrontend** — фронтенд-составляющая (Single Page Application / SPA) медиаплатформы для ведения блогов. Клиентская часть взаимодействует с серверной асинхронно через структурированные REST API запросы.
 
 **Ключевой функционал и роли системы:**
 * **Гость:** Может проходить регистрацию/авторизацию и просматривать доступные каналы.
@@ -62,7 +62,7 @@ Make sure you have the following tools installed on your local machine:
 
 >  Данный репозиторий содержит фронтенд-часть приложения. Исходный код бэкенда расположен в отдельном репозитории: [BlogPoint Backend](https://github.com/BlogPoint-Network/blogpoint-backend).
 
-### Технологический стек
+### Стек
 * **Среда выполнения:** Node.js 18
 * **Инструмент сборки:** Vite
 * **Контейнеризация:** Docker & Docker Compose
@@ -74,9 +74,10 @@ Make sure you have the following tools installed on your local machine:
 * [Docker](https://www.docker.com/)
 * [Docker Compose](https://docs.docker.com/compose/)
 
+#### Пошаговая установка
 1. **Клонируйте репозиторий:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/Zigggmund/BlogPointFrontend.git
    cd BlogPointFrontend
    ```
 
@@ -89,7 +90,7 @@ Make sure you have the following tools installed on your local machine:
    Приложение будет доступно по адресу: [http://localhost:5173](http://localhost:5173)
 
 4. **Документация API:**
-   Интерфейс Swagger доступен по адресу: [http://localhost:8000/swagger](http://localhost:8000/swagger)
+   Swagger доступен по адресу: [http://localhost:8000/swagger](http://localhost:8000/swagger)
 
 #### Другие команды
 * **Остановить контейнеры:**
