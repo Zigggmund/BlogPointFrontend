@@ -1,6 +1,6 @@
 # BlogPoint — Frontend Application
 
-### 📝 Project Overview
+### Project Overview
 **BlogPoint** is a modern web application designed for self-expression, providing users with a convenient and user-friendly space to publish and showcase their creative work. 
 
 **Core Features & Roles:**
@@ -52,7 +52,7 @@ Make sure you have the following tools installed on your local machine:
 
 ---
 
-### 📝 Аннотация проекта (Overview)
+### Аннотация проекта (Overview)
 **BlogPoint** — это современное веб-приложение для самовыражения, представляющее собой удобное и доступное пространство для размещения и демонстрации своего творчества.
 
 **Ключевой функционал и роли системы:**
